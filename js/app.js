@@ -8,21 +8,21 @@ const showProducts = (products) => {
   const allProducts = products.map((producDetails) => producDetails);
   for (const product of allProducts) {
     const div = document.createElement("div");
-    div.classList.add("product");
+    // div.classList.add("single-product");
     div.innerHTML = `
     <div class="single-product">
       <div>
          <img class="product-image" src=${product.image}></img>
       </div>
-      <h3 class="fs-4 pt-2">${product.title.slice(0,15)}</h3>
+      <h3 class="fs-4 pt-2">${product.title.slice(0, 15)}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
+      <h2 class="fs-5">Price: $ ${product.price}</h2>
       <p>average Rating Count : ${product.rating.rate}</p>
       <p>Total Rating  : ${product.rating.count}</p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
-   
+
 
     document.getElementById("all-products").appendChild(div);
   }
@@ -80,7 +80,7 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-    document.getElementById("total").innerText = grandTotal.toFixed(2);
+  document.getElementById("total").innerText = grandTotal.toFixed(2);
 }
 
 
